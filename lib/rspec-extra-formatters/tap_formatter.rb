@@ -49,17 +49,17 @@ class TapFormatter < RSpec::Core::Formatters::BaseFormatter
 
   end
 
-  def example_passed(example)
+  def example_passed(example, message)
     super(example)
     tap_example_output(OK, example)
   end
 
-  def example_pending(example)
+  def example_pending(example,message)
     super(example)
     tap_example_output(NOT_OK, example, SKIP)
   end
 
-  def example_failed(example)
+  def example_failed(example, message)
     super(example)
     tap_example_output(NOT_OK, example)
     output.puts("    ---")
